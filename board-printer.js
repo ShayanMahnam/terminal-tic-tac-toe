@@ -37,7 +37,7 @@ function printRow(row) {
         }
     });
 
-    console.log(newRow.join(" | "));
+    console.log(" " + newRow.join(" | "));
 }
 
 
