@@ -18,6 +18,7 @@ import { checkIfNoMovesLeft } from './board-printer.js';
     Otherwise, return false
 */
 function checkRow(board, player, rowNumber) {
+  return board[rowNumber].every((element) => element === player);
 }
 
 /*
@@ -29,6 +30,12 @@ function checkRow(board, player, rowNumber) {
     Otherwise, return false
 */
 function checkColumn(board, player, columnNumber) {
+  for (let row in board) {
+    if (board[row][columnNumber] !== player) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /*
@@ -39,7 +46,17 @@ function checkColumn(board, player, columnNumber) {
     Otherwise, return false
 */
 function checkDiagonal(board, player) {
-    // It may be easier to use an if statement than a loop here
+  // It may be easier to use an if statement than a loop here
+  if (
+    (board[0][0] === player &&
+      board[1][1] === player &&
+      board[2][2] === player) ||
+    (board[0][2] === player && board[1][1] === player && board[2][0] === player)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
